@@ -14,14 +14,17 @@
   include "class/fotos.php"; //фото
   include "class/fotoalbums.php"; //фотоальбомы
 
-  if ($status == 0) {
+  if ($status == 0)
+  {
     //пользователь вошёл на сайт
-    switch ($type) {
+    switch ($type)
+    {
       case 1: // пользователь
       $sql_load = ""; // загрузка
       $sql_edit = ""; // редактирование
       $sql_delete = ""; // удаление
-        switch ($action) {
+        switch ($action)
+        {
           case 3: // загрузка
             $my_class = new users (3, $sql_load);
             break;
@@ -39,7 +42,8 @@
       $sql_load = ""; // загрузка
       $sql_edit = ""; // редактирование
       $sql_delete = ""; // удаление
-        switch ($action) {
+        switch ($action)
+        {
           case 1: // добавление
             $my_class = new friends (1, $sql_add);
             break;
@@ -63,7 +67,8 @@
       $sql_load = ""; // загрузка
       $sql_edit = ""; // редактирование
       $sql_delete = ""; // удаление
-        switch ($action) {
+        switch ($action)
+        {
           case 1: // добавление
             $my_class = new fotos (1, $sql_add);
             break;
@@ -87,7 +92,8 @@
       $sql_load = ""; // загрузка
       $sql_edit = ""; // редактирование
       $sql_delete = ""; // удаление
-        switch ($action) {
+        switch ($action)
+        {
           case 1: // добавление
             $my_class = new fotoalbums (1, $sql_add);
             break;
@@ -108,25 +114,27 @@
   //стена, заметки, комментарии,группы, ...
     }
   }
-  esle { //потльзователь не вошёл
-    switch ($type){
+  else
+  {
+    switch($type)
+    {
       case 0:
-      $sql_add = ""; //добаление
-      $sql_list = ""; //список
-      $sql_load = ""; // загрузка
-      switch ($action){
-        case 1: // добавление
-          $my_class = new reguser (1, $sql_add);
+        $sql_add = "INSERT INTO SOCIAL_user (login, pass, email) VALUES ('$username', '$password', '$myemail')";
+        $sql_list = "SELECT id, login FROM $table_user LIMIT 5";
+        $sql_load = "SELECT login, pass FROM $table_user WHERE email = '$myemail'";
+        switch($action)
+        {
+          case 1: // Добавление (Регистрация)
+            $my_class = new reguser(1, $sql_add, $password, $password_r, $username, $myemail);
           break;
-        case 2: // список
-          $my_class = new reguser (2, $sql_list);
+          case 2: // Список
+            $my_class = new reguser(2, $sql_list);
           break;
-        case 3: // загрузка
-          $my_class = new reguser (3, $sql_load);
+          case 3: // Загрузка (Восстановление)
+            $my_class = new reguser(3, $sql_load, $myemail);
           break;
-      }
-    break;
+        }
+      break;
     }
   }
-
-?>
+  ?>

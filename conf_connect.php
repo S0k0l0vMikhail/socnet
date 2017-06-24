@@ -35,5 +35,5 @@
   $folder = "site.ru";
   if ($url == $site1 or $url == $site2)
   $folder = "http://site.ru";
-  //include "function/mail_send.php";
+  include "function/mail_send.php";
 ?>

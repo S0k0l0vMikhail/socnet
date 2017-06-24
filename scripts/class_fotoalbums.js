@@ -1,0 +1,3 @@
+  function class_fotoalbums()
+  {
+  }
