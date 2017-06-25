@@ -1,0 +1,22 @@
+  a {
+    color: red;
+  }
+
+  b {
+  }
+
+  .myerror {
+    border: 1px solid red;
+  }
+
+  #block_menu {
+    border: 1px solid black;
+  }
+
+  #block_left {
+    border: 1px solid black;
+  }
+
+  #block_user {
+    border: 1px solid black;
+  }
