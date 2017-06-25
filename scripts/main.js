@@ -1,32 +1,12 @@
-function all_class()
-{
-  class_reguser(); class_users(); class_fotos(); class_fotoalbums();
-}
-
-function this_page(type, id)
-{
-  all_class();
-  if (type>0)
-  {
-    switch(type)
-    {
-      case 1:
-        switch(id)
-        {
-          case 1: // Индексная страница
-            form_loader("main_page.html", "content");
-          break;
-          case 2: // Форма регистрации
-            form_loader("form_reg.html", "content");
-          break;
-          case 3:
-            alert("Вывести список контактов");
-          break;
-        }
-      break;
-      default:
-        s("content").innerHTML = "Страница пользователя или что-либо еще";
-      break;
+function this_page (type, id){
+  if (type> 0){
+    if (type == 1){ // 1 - регистрация
+      alert (id);
+      form_loader("form_reg.html", "content");
+      s("content").innerHTML = "загрузить форму";
+    }
+    else {
+      s("content").innerHTML = "Страница пользователья или";
     }
   }
 }

@@ -27,12 +27,8 @@
   echo "<script language=\"JavaScript\" type=\"text/javascript\">";
   include "scripts/scripts.js";
   include "scripts/main.js";
-  include "scripts/class_users.js";
-  include "scripts/class_fotoalbums.js";
-  include "scripts/class_fotos.js";
-  include "scripts/class_reguser.js";
-  //include "scripts/class_friends.js";
   echo "window.top.window.this_page($type, $id);";
+  //include "script/class_user.js";
   echo "</script>";
 
 

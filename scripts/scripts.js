@@ -1,11 +1,10 @@
   url_s = "http://site.ru/";
-  url_api = url_s+"api.php";
   /*
   url_s = location.host;
   if (url_s == 'localhost')
-  url_s = "http://localhost/site.ru/www/";
+  url_s = "http://localhost/www/social_net/";
   else
-  url_s = "http://site.ru/";
+  url_s = "http://panzins.ru/";
   url_api = url_s+"api";
   */
 
@@ -75,7 +74,7 @@
   function form_loader(form_name, output)
   {
     var url = url_s+"html/"+form_name;
-
+    
     request_login.open("GET", url, true);
     request_login.onreadystatechange = function()
     {
@@ -107,8 +106,8 @@
       request_login.open("GET", url, true);
       request_login.onreadystatechange = function()
       {
-        if (request_login.readyState == 4) // если загрузка завершена
-          if (request_login.status == 200) // если нет ошибки
+        if (request_login.readyState == 4)
+          if (request_login.status == 200)
             self.upd_form_loader(request_login.responseText);
       };
       request_login.send(null);

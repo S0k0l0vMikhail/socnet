@@ -8,7 +8,7 @@
     $count_url++;
     $razdel = $pages_url["$count_url"];
     $razdel = prover($razdel);
-    //$razdel = substr($razdel, 1);
+    $razdel = substr($razdel, 1);
     return $razdel;
   }
 ?>
